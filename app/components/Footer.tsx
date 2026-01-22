@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
             </p>
 
             <div className="flex gap-4 pt-2">
-              <SocialButton icon={Instagram} href="#" />
+              <SocialButton icon={Instagram} href="https://www.instagram.com/coachbaseweb/" />
               <SocialButton icon={Facebook} href="#" />
               <SocialButton icon={Linkedin} href="#" />
             </div>

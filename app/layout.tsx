@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const sora = Sora({
@@ -77,6 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
+      <Analytics/>
       <body
         // Javítva: a sora.variable csak egyszer kell
         className={`${sora.variable} antialiased bg-white text-gray-900`}

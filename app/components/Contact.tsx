@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
 
               {/* A FŐ GOMB */}
               <motion.a 
-                href="https://instagram.com" 
+                href="https://instagram.com/coachbaseweb/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
