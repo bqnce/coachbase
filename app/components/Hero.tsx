@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+// Hozzáadtuk az ArrowDown-t az importokhoz
+import { ArrowRight, CheckCircle2, ArrowDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const containerVariants: Variants = {
@@ -29,7 +30,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-24 md:pt-32 md:pb-32 px-6 overflow-hidden bg-slate-50">
+    <section className="relative pt-32 pb-24 md:pt-32 md:pb-32 px-6 overflow-hidden bg-slate-50 min-h-screen flex flex-col justify-center">
       
       {/* 1. TECH BACKGROUND (Grid + Glows) */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -60,11 +61,11 @@ const Hero: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            System v2.0 Available
+            Status: Online & Ready
           </div>
         </motion.div>
 
-        {/* 3. HEADLINE - FRISSÍTVE */}
+        {/* 3. HEADLINE */}
         <motion.h1 
           variants={itemVariants} 
           className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tighter leading-[1.1] md:leading-[1.1] mb-8"
@@ -86,7 +87,7 @@ const Hero: React.FC = () => {
           </span>
 
           <span className="inline-block text-slate-900">
-             és jelentkezési rendszer
+             és lead rendszer
           </span>
           
           <br className="hidden md:block" />
@@ -114,7 +115,7 @@ const Hero: React.FC = () => {
         </motion.h1>
 
         {/* 4. SUBHEADLINE */}
-        <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-lg md:text-xl font-medium text-slate-500 mb-12">
+        <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-lg md:text-xl font-medium text-slate-500 mb-12 mt-12">
           <span className="flex items-center gap-2">
             <CheckCircle2 size={20} className="text-blue-600" />
             Kevesebb komolytalan érdeklődő
@@ -152,6 +153,26 @@ const Hero: React.FC = () => {
         </motion.div>
 
       </motion.div>
+      
+      {/* 6. LEBEGŐ NYÍL (ÚJ RÉSZ) */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ 
+          opacity: { delay: 2, duration: 1 },
+          y: { duration: 2, repeat: Infinity, ease: "easeInOut" } 
+        }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 cursor-pointer hover:text-blue-600 transition-colors"
+        onClick={() => {
+          const problemSection = document.getElementById('problem');
+          if (problemSection) {
+            problemSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+      >
+        <ArrowDown size={32} strokeWidth={1.5} />
+      </motion.div>
+
     </section>
   );
 };
