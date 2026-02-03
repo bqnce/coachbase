@@ -10,7 +10,7 @@ const Solution: React.FC = () => {
       icon: <Instagram size={32} className="text-white" />,
       label: "Figyelem",
       sub: "Instagram forgalom",
-      desc: "A célközönséged már ott van. Mi csak odatereljük őket.",
+      desc: "A célközönséged már ott van. Mi csak szűrjük őket.",
       color: "from-pink-500 to-rose-500",
       delay: 0
     },
@@ -18,7 +18,7 @@ const Solution: React.FC = () => {
       icon: <Globe size={32} className="text-white" />,
       label: "Szűrés",
       sub: "Profi weboldal",
-      desc: "Egy oldal, ami elad helyetted, amíg te alszol (vagy edzel).",
+      desc: "Hogy több időd legyen a fontosabb dolgokra.",
       color: "from-blue-500 to-cyan-500",
       delay: 0.1
     },
@@ -26,7 +26,7 @@ const Solution: React.FC = () => {
       icon: <FileText size={32} className="text-white" />,
       label: "Minőség",
       sub: "Jelentkező ív",
-      desc: "Csak azok jutnak át, akik komolyan gondolják.",
+      desc: "Csak azok keresnek meg, akik tényleg komolyan gondolják.",
       color: "from-indigo-500 to-purple-500",
       delay: 0.2
     },
@@ -34,7 +34,7 @@ const Solution: React.FC = () => {
       icon: <PhoneCall size={32} className="text-white" />,
       label: "Zárás",
       sub: "Konzultáció",
-      desc: "Már csak a 'melyik csomagot válasszam?' kérdés marad.",
+      desc: "Nem kell eladnod. Aki ide eljut, az már készen áll a munkára.",
       color: "from-emerald-500 to-teal-500",
       delay: 0.3
     },
@@ -42,12 +42,12 @@ const Solution: React.FC = () => {
 
   return (
     <section id="solution" className="py-24 px-6 relative overflow-hidden bg-slate-50">
-      
+
       {/* Háttér Rács */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Header */}
         <div className="text-center mb-20">
           <motion.div
@@ -71,12 +71,12 @@ const Solution: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6 relative inline-block"
           >
-            Erre való a{' '}
+            Hogyan tud segíteni a{' '}
             <span className="relative inline-block">
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                CoachBase.
+                CoachBase?
               </span>
-              
+
               {/* --- SVG ALÁHÚZÁS ANIMÁCIÓ --- */}
               <motion.svg
                 viewBox="0 0 300 25"
@@ -104,13 +104,13 @@ const Solution: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed"
           >
-            Lecseréljük a végtelen DM-ezést egy automatizált gépezetre, ami <span className="font-bold text-slate-800">0-24-ben szűri a jelentkezőket</span> helyetted.
+            Lecseréljük a DM-ezést egy automatizált rendszerre, ami <span className="font-bold text-slate-800">24/7-ben szűri a jelentkezőket</span> helyetted, és válaszol a <span className="font-bold text-slate-800">gyakori</span> kérdésekre.
           </motion.p>
         </div>
 
         {/* Lépések Kártyák */}
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-6 mb-32">
-          
+
           {/* Összekötő vonal (Desktop) */}
           <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-10" />
 
@@ -125,7 +125,7 @@ const Solution: React.FC = () => {
             >
               {/* Kártya Doboz */}
               <div className="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2 h-full flex flex-col items-start relative overflow-hidden z-10">
-                
+
                 {/* Színes felső sáv (Accent) */}
                 <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${step.color}`} />
 
@@ -142,14 +142,14 @@ const Solution: React.FC = () => {
                 <h3 className="text-xl font-black text-slate-900 mb-1 relative z-10">{step.label}</h3>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 relative z-10">{step.sub}</p>
                 <p className="text-slate-600 text-sm leading-relaxed relative z-10">{step.desc}</p>
-                
+
               </div>
-              
+
               {/* Mobil nyíl */}
               {idx < steps.length - 1 && (
-                 <div className="md:hidden flex justify-center py-4">
-                    <ArrowRight className="text-slate-300 rotate-90" />
-                 </div>
+                <div className="md:hidden flex justify-center py-4">
+                  <ArrowRight className="text-slate-300 rotate-90" />
+                </div>
               )}
             </motion.div>
           ))}
@@ -171,18 +171,18 @@ const Solution: React.FC = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
               <div className="text-center md:text-right">
                 <p className="text-lg md:text-2xl font-bold text-slate-500 line-through decoration-slate-600 decoration-2 opacity-60">
-                  Nem több üzenet.
+                  Lassú, manuális munka.
                 </p>
               </div>
 
               <div className="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
-                 <ArrowRight className="text-white md:rotate-0 rotate-90" />
+                <ArrowRight className="text-white md:rotate-0 rotate-90" />
               </div>
 
               <div className="text-center md:text-left">
                 <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight drop-shadow-lg">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                    Jobb folyamat.
+                    Gyors, automata rendszer.
                   </span>
                 </h3>
               </div>

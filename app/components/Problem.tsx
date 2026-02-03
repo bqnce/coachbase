@@ -9,7 +9,7 @@ const Problem: React.FC = () => {
     {
       icon: <MessageSquareOff size={32} className="text-rose-500" />,
       title: "DM Káosz",
-      text: "Sokan írnak, de kevesen fizetnek. A napod fele pötyögéssel telik, nulla eredménnyel.",
+      text: "Sokan írnak, de vajon ennek hány százaléka lesz, valós, fizető ügyfél?",
       code: "ERR_01"
     },
     {
@@ -152,7 +152,7 @@ const Problem: React.FC = () => {
                 </h3>
 
                 <p className="text-lg md:text-xl text-slate-400 font-medium italic">
-                  "A baj az, hogy lyukas vödörrel próbálsz vizet merni."
+                  "Hanem az, hogy nincsenek szűrve."
                 </p>
               </div>
 

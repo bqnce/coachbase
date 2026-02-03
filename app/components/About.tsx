@@ -1,145 +1,217 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Quote, CheckCircle2, XCircle, LayoutGrid, Sparkles } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Quote,
+  CheckCircle2,
+  Sparkles,
+  Code2,
+  Target,
+  Cpu,
+  ArrowRight,
+} from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 overflow-hidden bg-white">
-      
-      {/* 1. Tech Background Grid (Mérnöki hatás) */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10" />
+    <section id="about" className="relative py-24 overflow-hidden bg-slate-50/50">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-100/50 rounded-full blur-3xl opacity-50" />
+        <div className="absolute inset-0 bg-[matrix(1px,0,0,1px,0,0)] bg-[slate-200/20] [mask-image:radial-gradient(white,transparent)]" />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        
-        {/* INLINED HEADER (SectionHeader helyett) */}
-        <div className="mb-16 text-center">
-          <motion.div 
+        {/* --- HEADER --- */}
+        <div className="mb-20 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-block"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200 shadow-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
               <Sparkles className="w-3.5 h-3.5 text-blue-500" />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-indigo-500 to-blue-700 text-[10px] font-black uppercase tracking-[0.25em]">
-                A filozófiám
+                A RENDSZER
               </span>
             </div>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight"
+            className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight"
           >
-            Ki vagyok én?
+            Így épül fel a növekedésed
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 h-1.5 w-24 bg-blue-600 rounded-full mx-auto"
+            className="mt-6 h-1.5 w-24 bg-blue-600 rounded-full mx-auto"
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          
-          {/* BAL OLDAL: A "Statement" Kártya (Sötét, kontrasztos) */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+        {/* --- MAIN GRID LAYOUT --- */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+          {/* 1. Large Feature Card: The Mission */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative rounded-[2.5rem] bg-slate-900 p-8 md:p-12 overflow-hidden shadow-2xl shadow-slate-200"
+            className="md:col-span-8 relative group"
           >
-            {/* Dekorációs háttér a kártyán belül */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
-            
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                <LayoutGrid className="w-3 h-3" />
-                Rendszerépítő
+            <div className="h-full p-8 md:p-12 rounded-[3rem] bg-slate-900 text-white overflow-hidden relative border border-slate-800">
+              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Cpu className="w-32 h-32 text-blue-400" />
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-black text-white leading-tight mb-8">
-                Nem hiszek a szerencsében. <br/>
-                <span className="text-blue-500">A matekban hiszek.</span>
-              </h3>
-
-              <div className="space-y-4">
-                {/* A "ROSSZ" (Múlt) */}
-                <div className="flex items-center gap-4 text-slate-500">
-                  <XCircle className="w-6 h-6 shrink-0" />
-                  <span className="text-lg font-medium line-through decoration-slate-600 decoration-2">
-                    Marketinget árulok
-                  </span>
-                </div>
-
-                {/* A "JÓ" (Jövő) */}
-                <div className="flex items-center gap-4 text-white">
-                  <div className="w-6 h-6 shrink-0 rounded-full bg-blue-500 flex items-center justify-center text-slate-900">
-                    <CheckCircle2 className="w-4 h-4" strokeWidth={3} />
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 rounded-lg bg-blue-500/20 text-blue-400">
+                    <Code2 className="w-5 h-5" />
                   </div>
-                  <span className="text-xl font-bold">
-                    Működő jelentkező rendszert építek
+                  <span className="text-sm font-bold tracking-widest uppercase text-slate-400">
+                    Rendszerszemlélet
                   </span>
                 </div>
-              </div>
 
-              <div className="mt-10 pt-8 border-t border-slate-800">
-                <p className="text-slate-400 text-sm leading-relaxed font-medium">
-                  "Az edzők többsége remek szakember, de elveszik az online zajban. Én abban segítek, hogy a szaktudásod eljusson azokhoz, akiknek szükségük van rá – kiszámíthatóan."
+                <h3 className="text-3xl md:text-4xl font-black leading-tight mb-6">
+                  Nem csak weboldalt készítek, <br />
+                  hanem <span className="text-blue-400">ügyfélszerző rendszert</span>.
+                </h3>
+
+                <p className="text-slate-400 text-lg mb-8 max-w-md leading-relaxed">
+                  A legtöbb edző azért nem nő online, mert reményre épít.
+                  Én mérnöki logikával alakítom a szakértelmedet egy kiszámítható,
+                  automatizált, személyre szabott és jól működő weboldalra.
                 </p>
+
+                <div className="mt-auto flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                    <span className="text-sm font-medium text-slate-300">
+                      Átgondolt logika
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                    <span className="text-sm font-medium text-slate-300">
+                      Skálázható rendszer
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* JOBB OLDAL: Személyesebb, tisztább rész */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          {/* 2. Side Card: Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="pl-0 lg:pl-12 text-center lg:text-left"
+            transition={{ delay: 0.1 }}
+            className="md:col-span-4"
           >
-            <div className="mb-8 relative inline-block">
-               <Quote className="w-12 h-12 text-blue-100 absolute -top-6 -left-6 -z-10" />
-               <h4 className="text-2xl font-black text-slate-900 tracking-tight">
-                 Edzők online jelenlétével foglalkozom.
-               </h4>
-            </div>
+            <div className="h-full p-8 rounded-[3rem] bg-blue-600 text-white flex flex-col justify-between relative overflow-hidden shadow-xl shadow-blue-200">
+              <Quote className="w-20 h-20 text-white/10 absolute -top-4 -right-4" />
 
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Nem ügynökség vagyok, aki sablonokat sóz rád. Egy partner vagyok, aki érti, milyen érzés, amikor üres a naptár, és milyen, amikor tele van várólistával.
-            </p>
+              <div className="relative z-10">
+                <ul className="space-y-4 mb-8">
+                  {[
+                    "Felejtsd el a sablonkérdések megválaszolását.",
+                    "Az érdeklődő minden válasz birtokában érkezik hozzád.",
+                    "Innentől már csak egy lépés a közös munka kezdete."
+                  ].map((text, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex items-start gap-3 group"
+                    >
+                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-white group-hover:bg-blue-400 group-hover:scale-125 transition-all duration-300" />
+                      <p className="text-xl font-bold leading-tight tracking-tight text-white/90">
+                        {text}
+                      </p>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Kiemelt "Personal Touch" Box */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm inline-block text-left relative group hover:border-blue-200 transition-colors duration-300">
-              <div className="flex items-center gap-4">
-                {/* Placeholder a képnek/ikonnak */}
-                <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-2xl group-hover:bg-blue-50 transition-colors">
-                  👋
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-xl">
+                  ⚡
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">
-                    A garanciám
-                  </p>
-                  <p className="text-base font-black text-slate-900 italic">
-                    "Csak olyat adok el, amit edzőként én is használnék."
-                  </p>
+                  <div className="text-sm font-black uppercase tracking-tighter">
+                    Alapelvem
+                  </div>
+                  <div className="text-[10px] opacity-80 uppercase tracking-widest">
+                    Logika a hype helyett
+                  </div>
                 </div>
               </div>
             </div>
+          </motion.div>
 
+          {/* 3. Bottom Card: Difference */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="md:col-span-12"
+          >
+            <div className="p-8 md:p-10 rounded-[3rem] bg-white border border-slate-200 shadow-xl shadow-slate-200/50 flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-wider mb-4">
+                  <Target className="w-4 h-4" />
+                  Versenyelőny
+                </div>
+                <h4 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">
+                  Tűnj ki a tömegből egy{" "}
+                  <span className="text-blue-600 italic">
+                    személyre szabott weboldallal
+                  </span>
+                  .
+                </h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Egy ilyen telített piacon, órási versenyelőnyt jelenthet egy profi weboldal, jelentkezői rendszer.
+                  
+                </p>
+              </div>
+
+              <div className="w-full md:w-auto">
+                <div className="bg-slate-900 p-8 rounded-[2rem] border border-slate-800 flex flex-col gap-3 min-w-[280px]">
+                  <div className="flex items-center gap-3 group cursor-default">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
+                    <span className="font-bold text-white">
+                      Automatizált érdeklődés
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 group cursor-default">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
+                    <span className="font-bold text-white">
+                      Hiteles szakmai jelenlét
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
   );
-};
+}
